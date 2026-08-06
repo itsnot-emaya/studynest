@@ -1,0 +1,79 @@
+/* Professional motion system */
+@keyframes fade-up{from{opacity:0;transform:translateY(22px)}to{opacity:1;transform:translateY(0)}}
+@keyframes fade-in{from{opacity:0}to{opacity:1}}
+@keyframes pop-in{from{opacity:0;transform:translateY(14px) scale(.96)}to{opacity:1;transform:translateY(0) scale(1)}}
+@keyframes slide-in-right{from{transform:translateX(100%)}to{transform:translateX(0)}}
+@keyframes toast-in{0%{opacity:0;transform:translate(-50%,-14px) scale(.96)}100%{opacity:1;transform:translate(-50%,0) scale(1)}}
+@keyframes float-paper{0%,100%{transform:rotate(3deg) translateY(0)}50%{transform:rotate(2deg) translateY(-10px)}}
+@keyframes float-back{0%,100%{transform:rotate(11deg) translateY(0)}50%{transform:rotate(12deg) translateY(8px)}}
+@keyframes float-badge{0%,100%{transform:translateY(0)}50%{transform:translateY(-6px)}}
+@keyframes progress-grow{from{transform:scaleX(0)}to{transform:scaleX(1)}}
+@keyframes page-enter{0%{opacity:0;transform:translateY(18px);filter:blur(8px)}100%{opacity:1;transform:none;filter:blur(0)}}
+@keyframes shimmer{0%{transform:translateX(-130%) skewX(-18deg)}100%{transform:translateX(230%) skewX(-18deg)}}
+@keyframes pulse-soft{0%,100%{box-shadow:0 0 0 0 #85bb9b20}50%{box-shadow:0 0 0 12px #85bb9b00}}
+@keyframes gradient-move{0%,100%{background-position:0% 50%}50%{background-position:100% 50%}}
+
+button,a,.product,.subject-row button,.library-card,.stats>div,.quick button{transition:transform .22s cubic-bezier(.2,.8,.2,1),box-shadow .22s ease,border-color .22s ease,background-color .22s ease,color .22s ease,opacity .22s ease}
+button:active{transform:scale(.96)}
+main>section{animation:page-enter .58s cubic-bezier(.16,1,.3,1) both}
+.primary,.light,.checkout,.auth-submit{position:relative;overflow:hidden}
+.primary::after,.light::after,.checkout::after,.auth-submit::after{content:"";position:absolute;inset:-40% auto -40% -35%;width:25%;background:linear-gradient(90deg,transparent,#fff7,transparent);transform:skewX(-18deg)}
+.primary:hover::after,.light:hover::after,.checkout:hover::after,.auth-submit:hover::after{animation:shimmer .85s ease}
+button:focus-visible,a:focus-visible,input:focus-visible,select:focus-visible{outline:3px solid #88bd9d;outline-offset:3px}
+.primary:hover,.checkout:hover,.signin-btn:hover,.auth-submit:hover{transform:translateY(-2px);background:#12583e;box-shadow:0 12px 26px #176a4a35}
+.light:hover{transform:translateY(-2px);box-shadow:0 10px 24px #071b1430}
+.google-btn:hover{transform:translateY(-2px);border-color:#92a49a;box-shadow:0 8px 22px #17231f12}
+.nav .brand:hover .brandmark{transform:rotate(-6deg) scale(1.06)}
+.brandmark{transition:transform .3s cubic-bezier(.2,.8,.2,1)}
+.nav nav button:hover{color:#176a4a}
+.search-btn:hover,.cart-btn:hover{border-color:#83a995;background:#f5faf5;transform:translateY(-1px)}
+.avatar:hover{transform:scale(1.07);box-shadow:0 7px 18px #176a4a20}
+
+.hero-copy{animation:fade-up .7s cubic-bezier(.2,.8,.2,1) both}
+.hero-visual{animation:fade-in .8s ease .12s both}
+.p-front{animation:float-paper 6s ease-in-out infinite}
+.p-back{animation:float-back 7s ease-in-out .5s infinite}
+.float-card{animation:float-badge 4.5s ease-in-out infinite}
+.orb{transition:transform .7s ease}
+.hero:hover .orb.one{transform:translate(8px,-8px) scale(1.025)}
+.hero:hover .orb.two{transform:translate(-6px,6px) scale(.96)}
+.hero{background-size:180% 180%;animation:gradient-move 12s ease infinite}
+
+.subjects,.catalog,.benefits,.newsletter,.dashboard-page,.admin{animation:fade-up .55s cubic-bezier(.2,.8,.2,1) both}
+.subject-row button:hover{transform:translateY(-7px) scale(1.015);box-shadow:0 18px 34px #17231f14}
+.subject-row button:hover span{transform:rotate(-5deg) scale(1.08)}
+.subject-row span{transition:transform .3s cubic-bezier(.2,.8,.2,1)}
+.product{overflow:hidden}
+.product:hover{transform:translateY(-8px);box-shadow:0 22px 42px #17231f18}
+.cover{transition:filter .3s ease}
+.product:hover .cover{filter:saturate(1.08) brightness(1.015)}
+.cover i{transition:transform .35s cubic-bezier(.2,.8,.2,1)}
+.product:hover .cover i{transform:translateY(-4px) rotate(-3deg) scale(1.08)}
+.product-body button:hover{background:#176a4a;color:white;transform:translateY(-1px)}
+.product-grid .product:nth-child(1),.subject-row button:nth-child(1){animation-delay:.03s}
+.product-grid .product:nth-child(2),.subject-row button:nth-child(2){animation-delay:.08s}
+.product-grid .product:nth-child(3),.subject-row button:nth-child(3){animation-delay:.13s}
+.product-grid .product:nth-child(4),.subject-row button:nth-child(4){animation-delay:.18s}
+.product-grid .product:nth-child(5),.subject-row button:nth-child(5){animation-delay:.23s}
+.product-grid .product:nth-child(6),.subject-row button:nth-child(6){animation-delay:.28s}
+.product-grid .product,.subject-row button{animation:fade-up .5s cubic-bezier(.2,.8,.2,1) both}
+
+.overlay{animation:fade-in .2s ease both}
+.modal,.auth-modal{animation:pop-in .3s cubic-bezier(.16,1,.3,1) both}
+.drawer{animation:slide-in-right .32s cubic-bezier(.16,1,.3,1) both}
+.toast{animation:toast-in .28s cubic-bezier(.16,1,.3,1) both}
+.close:hover{transform:rotate(90deg);background:#dfe8e2}
+.account-menu>div{transform-origin:top right;animation:pop-in .2s cubic-bezier(.16,1,.3,1) both}
+.library-card:hover,.stats>div:hover{transform:translateY(-5px);box-shadow:0 16px 32px #17231f12}
+.progress span{transform-origin:left;animation:progress-grow .8s cubic-bezier(.2,.8,.2,1) both}
+.quick button:hover,.manage-row:hover,.order-row:hover,.student-row:hover{background:#eaf2ec;transform:translateX(3px)}
+.manage-row,.order-row,.student-row{transition:transform .2s ease,background-color .2s ease}
+.admin aside button.selected{animation:pulse-soft 2.8s ease infinite}
+.reveal,section>div,.subject-directory button{opacity:0;transform:translateY(22px);transition:opacity .65s ease,transform .65s cubic-bezier(.16,1,.3,1)}
+.reveal.in-view,section>div.in-view,.subject-directory button.in-view{opacity:1;transform:none}
+.admin-modal,.course-admin-card,.category-admin-list article,.file-grid article{animation:pop-in .38s cubic-bezier(.16,1,.3,1) both}
+.course-admin-card:nth-child(2),.category-admin-list article:nth-child(2),.file-grid article:nth-child(2){animation-delay:.06s}.course-admin-card:nth-child(3),.category-admin-list article:nth-child(3),.file-grid article:nth-child(3){animation-delay:.12s}
+.course-thumb span,.file-icon,.category-symbol{transition:transform .3s cubic-bezier(.16,1,.3,1)}
+.course-admin-card:hover .course-thumb span,.file-grid article:hover .file-icon,.category-admin-list article:hover .category-symbol{transform:scale(1.08) rotate(-4deg)}
+
+@media(prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;scroll-behavior:auto!important;transition-duration:.01ms!important}.p-front,.p-back,.float-card{animation:none!important}}
