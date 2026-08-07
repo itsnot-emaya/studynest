@@ -1098,6 +1098,8 @@ export default function Home() {
             {adminModal === "file" && <>
               <span className="badge">MEDIA LIBRARY</span><h2>Upload learning materials</h2><p>Add one or multiple files and assign them to a course or category.</p>
               <label>Assign to<select value={newCategory} onChange={(e)=>setNewCategory(e.target.value)}>{courses.map((c)=><option key={c.id}>{c.title}</option>)}{categories.map((c)=><option key={c.id}>{c.name}</option>)}</select></label>
+              <div className="form-row"><label>Resource type<select><option>Lesson pack</option><option>Study notes</option><option>Recorded lecture</option><option>Past paper</option><option>Marking scheme</option></select></label><label>Exam level<select><option>O/L</option><option>A/L</option><option>Degree</option></select></label></div>
+              <div className="form-row"><label>Paper year<select>{PAPER_YEARS.map(year=><option key={year}>{year}</option>)}</select></label><label>Medium<select><option>English</option><option>Sinhala</option><option>Tamil</option></select></label></div>
               <label className="file-picker"><input type="file" multiple accept=".pdf,.doc,.docx,.ppt,.pptx,.zip,image/*,video/*,audio/*" onChange={(e)=>queueFiles(e.target.files)} /><span>⇧</span><b>Choose files to upload</b><small>PDF, video, presentations, documents, audio, images or ZIP files</small></label>
               <div className="upload-note">Files are added to your course media library and can be attached to lessons.</div>
             </>}
