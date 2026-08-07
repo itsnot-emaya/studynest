@@ -380,7 +380,7 @@ export default function Home() {
             Subjects
           </button>
           <button onClick={() => { navigate("/", "home"); setTimeout(() => document.getElementById("programmes")?.scrollIntoView({ behavior: "smooth" }), 50); }}>
-            Programmes
+            Learning paths
           </button>
           <button
             className={view === "library" ? "active" : ""}
@@ -436,7 +436,7 @@ export default function Home() {
         <>
           <section className="hero">
             <div className="hero-copy">
-              <div className="eyebrow">Built for Sri Lankan students</div>
+              <div className="eyebrow">O/L • A/L • DEGREE LEARNERS</div>
               <h1>
                 Study smarter.
                 <br />
@@ -451,7 +451,7 @@ export default function Home() {
                   className="primary"
                   onClick={() => navigate("/marketplace", "store")}
                 >
-                  Explore study packs <span>→</span>
+                  Browse learning resources <span>→</span>
                 </button>
                 <button
                   className="text-btn"
@@ -610,32 +610,32 @@ export default function Home() {
 
           <section className="education-hub" id="programmes">
             <div className="section-head">
-              <div><span>One learning platform</span><h2>From school to university and beyond</h2></div>
-              <p>Explore structured learning paths, academic programmes and skills that prepare you for exams, higher education and careers.</p>
+              <div><span>Resources for every learning stage</span><h2>Everything you need, from O/L to your degree</h2></div>
+              <p>Find organised lesson packs, revision notes, past papers, recorded lectures and degree resources designed to make studying simpler.</p>
             </div>
             <div className="pathway-tabs">
-              <button className="active">University programmes</button><button>School education</button><button>Certificates</button><button>Career skills</button>
+              <button className="active">Degree resources</button><button>O/L & A/L</button><button>Lecture library</button><button>Exam preparation</button>
             </div>
             <div className="programme-grid">
               {[
-                ["AI", "Computing & Artificial Intelligence", "Diplomas, degrees and practical pathways in AI, software engineering, data science and cybersecurity.", "12 programmes"],
-                ["EN", "Engineering & Technology", "Build foundations in robotics, electronics, mechanical systems and modern engineering technology.", "9 programmes"],
-                ["BM", "Business & Management", "Study management, accounting, marketing, entrepreneurship, finance and business analytics.", "11 programmes"],
-                ["HS", "Health & Life Sciences", "Explore biology, psychology, health science, laboratory skills and research foundations.", "8 programmes"],
-                ["AL", "Advanced Level", "Complete A/L learning pathways for Mathematics, Science, Technology, Commerce and Arts streams.", "42 courses"],
-                ["OL", "Ordinary Level", "Syllabus-aligned O/L courses, revision plans, past papers and subject mastery resources.", "36 courses"],
+                ["AI", "Computing & AI Resources", "Lecture notes, tutorials and practical resources for AI, software engineering, data science and cybersecurity.", "28 resources"],
+                ["EN", "Engineering Resources", "Degree notes, recorded lectures, worked examples and reference materials for engineering students.", "24 resources"],
+                ["BM", "Business & Management Notes", "Course notes, lecture packs and exam-focused resources for business, accounting and management.", "31 resources"],
+                ["HS", "Health & Science Resources", "Lecture notes, study guides and reference packs for biology, psychology and health-related degrees.", "19 resources"],
+                ["AL", "A/L Lesson Packs", "Revision notes, full lesson packs, past papers and recorded lessons for every major A/L stream.", "42 resources"],
+                ["OL", "O/L Study Packs", "Simple notes, model papers, lesson packs and revision materials for confident O/L preparation.", "36 resources"],
               ].map(([icon,title,description,count]) => (
                 <article className="programme-card" key={title}><span>{icon}</span><small>{count}</small><h3>{title}</h3><p>{description}</p><button onClick={() => navigate("/marketplace", "store")}>Explore courses →</button></article>
               ))}
             </div>
           </section>
           <section className="student-journey">
-            <div className="journey-copy"><span>YOUR STUDYNEST JOURNEY</span><h2>Learn with a clear path from enrolment to achievement.</h2><p>Choose a programme, follow organised modules, practise with assessments, track your progress and build evidence of your learning.</p><button className="primary" onClick={() => navigate("/marketplace", "store")}>Find your course →</button></div>
-            <div className="journey-steps">{[["01","Discover","Compare subjects, programmes and learning levels."],["02","Enrol","Create your account and access your personal learning space."],["03","Learn","Complete lessons, videos, readings, quizzes and assignments."],["04","Achieve","Track progress and earn completion recognition."]].map(([n,t,d])=><div key={n}><b>{n}</b><span><strong>{t}</strong><small>{d}</small></span></div>)}</div>
+            <div className="journey-copy"><span>YOUR LEARNING SPACE</span><h2>Find it. Learn it. Keep progressing.</h2><p>Choose your level, discover the right resource, learn at your own pace and keep everything saved in your personal library.</p><button className="primary" onClick={() => navigate("/marketplace", "store")}>Explore resources →</button></div>
+            <div className="journey-steps">{[["01","Discover","Browse by O/L, A/L, degree, subject or resource type."],["02","Save","Sign in and keep your purchased resources in one library."],["03","Learn","Study with notes, lesson packs, lectures and practice materials."],["04","Progress","Build confidence and move closer to your academic goals."]].map(([n,t,d])=><div key={n}><b>{n}</b><span><strong>{t}</strong><small>{d}</small></span></div>)}</div>
           </section>
           <section className="academic-services">
             <div className="section-head"><div><span>Student services</span><h2>Support for every stage of learning</h2></div></div>
-            <div>{[["⌕","Course guidance","Find the right subject, level or academic pathway."],["▤","Admissions information","Understand entry requirements, enrolment and course schedules."],["♙","Academic support","Get help with study planning, resources and assessments."],["◇","Digital library","Access notes, past papers, reference materials and downloads."],["✓","Certificates","Receive completion recognition for eligible programmes."],["↗","Career pathways","Connect learning choices with future study and career goals."]].map(([i,t,d])=><article key={t}><span>{i}</span><h3>{t}</h3><p>{d}</p><button onClick={()=>setInfoPage(t)}>Learn more →</button></article>)}</div>
+            <div>{[["⌕","Course guidance","Find the right subject, level or academic pathway."],["▤","Learning guidance","Choose the right learning level, subject and resource format."],["♙","Academic support","Get help with study planning, resources and assessments."],["◇","Digital library","Access notes, past papers, reference materials and downloads."],["✓","Lecture library","Watch and revisit recorded lessons included with selected packs."],["↗","Degree support","Find clear lecture notes and references for university-level study."]].map(([i,t,d])=><article key={t}><span>{i}</span><h3>{t}</h3><p>{d}</p><button onClick={()=>setInfoPage(t)}>Learn more →</button></article>)}</div>
           </section>
           <section className="benefits">
             <div>
@@ -1072,10 +1072,10 @@ export default function Home() {
         <div className="footer-top">
           <div className="footer-brand">
             <div className="brand"><span className="brandmark">S</span><span className="brand-copy"><span className="brand-name">Study<span>Nest</span></span><small>by Methzz</small></span></div>
-            <p>A modern learning platform for university and school education—courses, academic resources and student support in one place.</p>
+            <p>An aesthetic learning-resource platform for O/L, A/L and degree students—lesson packs, notes, lectures and study support in one place.</p>
             <div className="social-links"><a href="https://www.instagram.com/methsinduuuu/" target="_blank" rel="noreferrer">Instagram</a><a href="http://www.linkedin.com/in/methsindu-yapa" target="_blank" rel="noreferrer">LinkedIn</a><span>GitHub coming soon</span></div>
           </div>
-          <div><b>Study</b><button onClick={() => navigate("/marketplace","store")}>All courses</button><button onClick={() => navigate("/subjects","subjects")}>Subjects</button><button onClick={() => { navigate("/","home"); setTimeout(()=>document.getElementById("programmes")?.scrollIntoView({behavior:"smooth"}),50); }}>Programmes</button><button onClick={openLibrary}>My learning</button></div>
+          <div><b>Study</b><button onClick={() => navigate("/marketplace","store")}>All courses</button><button onClick={() => navigate("/subjects","subjects")}>Subjects</button><button onClick={() => { navigate("/","home"); setTimeout(()=>document.getElementById("programmes")?.scrollIntoView({behavior:"smooth"}),50); }}>Learning paths</button><button onClick={openLibrary}>My learning</button></div>
           <div><b>University</b><button onClick={()=>setInfoPage("Admissions")}>Admissions</button><button onClick={()=>setInfoPage("Faculties")}>Faculties</button><button onClick={()=>setInfoPage("Entry requirements")}>Entry requirements</button><button onClick={()=>setInfoPage("Academic calendar")}>Academic calendar</button></div>
           <div><b>Student support</b><button onClick={()=>setInfoPage("Help centre")}>Help centre</button><button onClick={()=>setInfoPage("Student services")}>Student services</button><a href="mailto:methsinduyapa2000@gmail.com">Contact us</a><button onClick={()=>setInfoPage("Accessibility")}>Accessibility</button></div>
           <div><b>Policies</b><button onClick={()=>setInfoPage("Terms of use")}>Terms of use</button><button onClick={()=>setInfoPage("Privacy policy")}>Privacy policy</button><button onClick={()=>setInfoPage("Cookie policy")}>Cookie policy</button><button onClick={()=>setInfoPage("Refund policy")}>Refund policy</button><button onClick={()=>setInfoPage("Copyright policy")}>Copyright policy</button></div>
@@ -1094,7 +1094,7 @@ export default function Home() {
             infoPage.includes("Refund") ? <><p>Digital products and immediately accessible course materials are generally non-refundable after access or download. Duplicate payments and verified technical failures will be reviewed fairly.</p><p>Contact us with the order reference within seven days so we can investigate.</p></> :
             infoPage.includes("Cookie") ? <><p>StudyNest uses essential browser storage and authentication cookies to keep accounts secure, remember sessions and provide core learning features.</p><p>Optional analytics may be added later with appropriate notice and controls.</p></> :
             infoPage.includes("Copyright") ? <><p>StudyNest branding, original course structures and platform content are protected. Tutor and third-party materials remain the property of their respective owners.</p><p>Report suspected infringement to methsinduyapa2000@gmail.com.</p></> :
-            <><p>StudyNest is developing this service as part of its university and school learning ecosystem.</p><p>For programme guidance, admissions information, accessibility assistance or academic support, contact Methsindu Yapa at <a href="mailto:methsinduyapa2000@gmail.com">methsinduyapa2000@gmail.com</a> or call <a href="tel:+94762321886">+94 76 232 1886</a>.</p><div className="info-actions"><a href="mailto:methsinduyapa2000@gmail.com">Email support</a><a href="https://wa.me/94762321886" target="_blank" rel="noreferrer">WhatsApp</a></div></>}
+            <><p>StudyNest provides organised digital learning resources for O/L, A/L and degree students.</p><p>For resource guidance, accessibility assistance or learning support, contact Methsindu Yapa at <a href="mailto:methsinduyapa2000@gmail.com">methsinduyapa2000@gmail.com</a> or call <a href="tel:+94762321886">+94 76 232 1886</a>.</p><div className="info-actions"><a href="mailto:methsinduyapa2000@gmail.com">Email support</a><a href="https://wa.me/94762321886" target="_blank" rel="noreferrer">WhatsApp</a></div></>}
             <small className="policy-note">Last updated: August 2026 · StudyNest by Methzz</small>
           </section>
         </div>
