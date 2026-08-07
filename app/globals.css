@@ -84,3 +84,26 @@ body{background:#fdfcff;color:var(--ink)}
 .info-modal{border:1px solid #e8e1f0}.info-modal a{color:#7454d6}.info-actions a{background:#eee8ff}.badge{color:#7454d6}
 .toast{background:#211a35}.search-btn,.cart-btn{border-color:#e8e1f0}.cart-btn b{background:#7454d6}
 @media(max-width:640px){.hero{background:linear-gradient(145deg,#fbf9ff,#f0e9fb)}}
+
+/* Final warm-minimal StudyNest theme */
+:root{--ink:#222936;--muted:#6f7682;--green:#526f92;--lime:#e7c98f;--paper:#f7f4ee;--line:#e8e2d9}
+body{background:#fffdf9;color:#222936}
+.nav{background:rgba(255,253,249,.94);border-bottom:1px solid #e9e3da;box-shadow:0 8px 30px rgba(31,40,54,.04)}
+.brandmark{background:#344b68!important;color:#fff!important;box-shadow:none!important}.brand-name>span,.brand-copy small{color:#526f92!important}.nav nav button.active{color:#344b68;border-color:#344b68}
+.signin-btn,.primary,.checkout{background:#344b68!important;box-shadow:0 9px 20px rgba(52,75,104,.16)!important}.cart-btn b{background:#344b68}.hero{background:radial-gradient(circle at 82% 20%,#e7edf4 0,transparent 31%),radial-gradient(circle at 10% 90%,#f1e3ca 0,transparent 25%),#faf8f4}
+.hero h1 em,.eyebrow,.section-head>div>span{color:#526f92}.orb.one{background:#dde7f0}.orb.two{background:#ead2a5}.p-front{border-color:#526f92}.float-card>strong{background:#e5edf4;color:#526f92}.subject-row span,.benefits span{background:#e8eef4;color:#526f92}
+.subject-row button:hover,.programme-card:hover{border-color:#9eb0c4;box-shadow:0 20px 45px rgba(45,60,80,.11)}.product-body button{border-color:#526f92;color:#526f92}
+.catalog,.education-hub{background:#f7f4ee}.pathway-tabs button.active{background:#344b68;border-color:#344b68}.programme-card>span{background:#e8eef4;color:#526f92}.programme-card button,.academic-services button{color:#526f92}
+.student-journey{background:radial-gradient(circle at 85% 20%,rgba(119,145,174,.24),transparent 34%),#26374d}.journey-copy>span,.journey-steps>div>b{color:#e7c98f}.academic-services article>span{color:#526f92}
+.newsletter{background:#344b68;box-shadow:0 20px 45px rgba(52,75,104,.18)}.newsletter>div>span{color:#ead2a5}.light{background:#f1dfbd;color:#293c55}.badge,.info-modal a{color:#526f92}.info-actions a{background:#e8eef4}.toast{background:#26374d}
+
+/* Standard compact footer */
+footer.site-footer{display:block!important;grid-template-columns:none!important;padding:0!important;gap:0!important;background:#202936!important;color:#dce1e6}
+footer.site-footer>.footer-main{display:grid!important;grid-template-columns:2fr repeat(4,1fr)!important;gap:48px!important;padding:58px 6% 42px!important}
+footer.site-footer .footer-about{display:block!important}.footer-about .brand{margin-bottom:18px}.footer-about .brand-name{color:#fff}.footer-about .brand-name>span,.footer-about .brand-copy small{color:#b9cadb!important}.footer-about p{color:#aeb8c3;line-height:1.7;max-width:340px;margin:0 0 18px}
+.footer-social{display:flex;gap:10px}.footer-social a{border:1px solid #465362;border-radius:8px;padding:8px 11px!important;color:#dce1e6!important;text-decoration:none}
+footer.site-footer .footer-column{display:flex!important;flex-direction:column!important;gap:12px!important}.footer-column b{color:#fff;margin-bottom:7px}.footer-column button,.footer-column a{border:0;background:none;padding:0;color:#aeb8c3;font:inherit;font-size:14px;text-align:left;text-decoration:none}.footer-column button:hover,.footer-column a:hover,.footer-social a:hover{color:#fff}
+footer.site-footer>.footer-contact{display:flex!important;flex-direction:row!important;align-items:center;gap:24px!important;padding:18px 6%!important;border-top:1px solid #3a4552;border-bottom:1px solid #3a4552;color:#aeb8c3;font-size:13px}.footer-contact strong{color:#fff}.footer-contact a{color:#cbd4dc;text-decoration:none}
+footer.site-footer>.footer-bottom{display:flex!important;flex-direction:row!important;justify-content:space-between;gap:20px!important;padding:20px 6%!important;color:#8f9aa6;font-size:12px;border:0!important}
+@media(max-width:950px){footer.site-footer>.footer-main{grid-template-columns:2fr repeat(2,1fr)!important}.footer-about{grid-column:1/-1}.footer-contact{flex-wrap:wrap}}
+@media(max-width:620px){footer.site-footer>.footer-main{grid-template-columns:1fr 1fr!important;gap:32px 22px!important;padding:45px 6% 30px!important}.footer-about{grid-column:1/-1}.footer-contact{flex-direction:column!important;align-items:flex-start!important;gap:8px!important}.footer-bottom{flex-direction:column!important}}
