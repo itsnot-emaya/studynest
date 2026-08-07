@@ -379,7 +379,7 @@ export default function Home() {
           >
             Subjects
           </button>
-          <button onClick={() => { navigate("/", "home"); setTimeout(() => document.getElementById("programmes")?.scrollIntoView({ behavior: "smooth" }), 50); }}>
+          <button onClick={() => { navigate("/", "home"); setTimeout(() => document.getElementById("learning-paths")?.scrollIntoView({ behavior: "smooth" }), 50); }}>
             Learning paths
           </button>
           <button
@@ -608,7 +608,7 @@ export default function Home() {
             )}
           </section>
 
-          <section className="education-hub" id="programmes">
+          <section className="education-hub" id="learning-paths">
             <div className="section-head">
               <div><span>Resources for every learning stage</span><h2>Everything you need, from O/L to your degree</h2></div>
               <p>Find organised lesson packs, revision notes, past papers, recorded lectures and degree resources designed to make studying simpler.</p>
@@ -635,7 +635,7 @@ export default function Home() {
           </section>
           <section className="academic-services">
             <div className="section-head"><div><span>Student services</span><h2>Support for every stage of learning</h2></div></div>
-            <div>{[["⌕","Course guidance","Find the right subject, level or academic pathway."],["▤","Learning guidance","Choose the right learning level, subject and resource format."],["♙","Academic support","Get help with study planning, resources and assessments."],["◇","Digital library","Access notes, past papers, reference materials and downloads."],["✓","Lecture library","Watch and revisit recorded lessons included with selected packs."],["↗","Degree support","Find clear lecture notes and references for university-level study."]].map(([i,t,d])=><article key={t}><span>{i}</span><h3>{t}</h3><p>{d}</p><button onClick={()=>setInfoPage(t)}>Learn more →</button></article>)}</div>
+            <div>{[["⌕","Course guidance","Find the right subject, level or academic pathway."],["▤","Learning guidance","Choose the right learning level, subject and resource format."],["♙","Academic support","Get help with study planning, resources and assessments."],["◇","Digital library","Access notes, past papers, reference materials and downloads."],["✓","Lecture library","Watch and revisit recorded lessons included with selected packs."],["↗","Degree support","Find clear lecture notes and references for degree-level study."]].map(([i,t,d])=><article key={t}><span>{i}</span><h3>{t}</h3><p>{d}</p><button onClick={()=>setInfoPage(t)}>Learn more →</button></article>)}</div>
           </section>
           <section className="benefits">
             <div>
@@ -903,7 +903,7 @@ export default function Home() {
             )}
             {adminTab === "Courses" && (
               <div className="admin-workspace">
-                <div className="workspace-toolbar"><div><h3>Courses</h3><p>Build complete learning programmes with modules, lessons and downloadable materials.</p></div><button className="primary" onClick={() => setAdminModal("course")}>＋ Create course</button></div>
+                <div className="workspace-toolbar"><div><h3>Courses</h3><p>Build complete learning collections with modules, lessons and downloadable materials.</p></div><button className="primary" onClick={() => setAdminModal("course")}>＋ Create course</button></div>
                 <div className="course-admin-grid">
                   {courses.map((course) => <article className="course-admin-card" key={course.id}>
                     <div className="course-thumb"><span>{course.category.slice(0,2).toUpperCase()}</span><i>⋮</i></div>
@@ -1068,20 +1068,20 @@ export default function Home() {
         </div>
       )}
 
-      <footer className="mega-footer">
-        <div className="footer-top">
-          <div className="footer-brand">
+      <footer className="site-footer">
+        <div className="footer-main">
+          <div className="footer-about">
             <div className="brand"><span className="brandmark">S</span><span className="brand-copy"><span className="brand-name">Study<span>Nest</span></span><small>by Methzz</small></span></div>
-            <p>An aesthetic learning-resource platform for O/L, A/L and degree students—lesson packs, notes, lectures and study support in one place.</p>
-            <div className="social-links"><a href="https://www.instagram.com/methsinduuuu/" target="_blank" rel="noreferrer">Instagram</a><a href="http://www.linkedin.com/in/methsindu-yapa" target="_blank" rel="noreferrer">LinkedIn</a><span>GitHub coming soon</span></div>
+            <p>Beautifully organised lesson packs, notes, lectures and exam resources for O/L, A/L and degree students.</p>
+            <div className="footer-social"><a href="https://www.instagram.com/methsinduuuu/" target="_blank" rel="noreferrer">Instagram</a><a href="http://www.linkedin.com/in/methsindu-yapa" target="_blank" rel="noreferrer">LinkedIn</a></div>
           </div>
-          <div><b>Study</b><button onClick={() => navigate("/marketplace","store")}>All courses</button><button onClick={() => navigate("/subjects","subjects")}>Subjects</button><button onClick={() => { navigate("/","home"); setTimeout(()=>document.getElementById("programmes")?.scrollIntoView({behavior:"smooth"}),50); }}>Learning paths</button><button onClick={openLibrary}>My learning</button></div>
-          <div><b>University</b><button onClick={()=>setInfoPage("Admissions")}>Admissions</button><button onClick={()=>setInfoPage("Faculties")}>Faculties</button><button onClick={()=>setInfoPage("Entry requirements")}>Entry requirements</button><button onClick={()=>setInfoPage("Academic calendar")}>Academic calendar</button></div>
-          <div><b>Student support</b><button onClick={()=>setInfoPage("Help centre")}>Help centre</button><button onClick={()=>setInfoPage("Student services")}>Student services</button><a href="mailto:methsinduyapa2000@gmail.com">Contact us</a><button onClick={()=>setInfoPage("Accessibility")}>Accessibility</button></div>
-          <div><b>Policies</b><button onClick={()=>setInfoPage("Terms of use")}>Terms of use</button><button onClick={()=>setInfoPage("Privacy policy")}>Privacy policy</button><button onClick={()=>setInfoPage("Cookie policy")}>Cookie policy</button><button onClick={()=>setInfoPage("Refund policy")}>Refund policy</button><button onClick={()=>setInfoPage("Copyright policy")}>Copyright policy</button></div>
-          <div className="creator-card"><span>CREATED BY</span><h3>Methsindu Yapa</h3><p>Creator of StudyNest · AI & Robotics student building accessible digital education experiences.</p><a href="mailto:methsinduyapa2000@gmail.com">methsinduyapa2000@gmail.com</a><a href="tel:+94762321886">+94 76 232 1886</a><a href="https://wa.me/94762321886" target="_blank" rel="noreferrer">WhatsApp creator →</a></div>
+          <div className="footer-column"><b>Learn</b><button onClick={()=>navigate("/marketplace","store")}>Browse resources</button><button onClick={()=>navigate("/subjects","subjects")}>All subjects</button><button onClick={()=>{navigate("/","home");setTimeout(()=>document.getElementById("learning-paths")?.scrollIntoView({behavior:"smooth"}),50)}}>Learning levels</button><button onClick={openLibrary}>My library</button></div>
+          <div className="footer-column"><b>Resources</b><button onClick={()=>setInfoPage("O/L resources")}>O/L study packs</button><button onClick={()=>setInfoPage("A/L resources")}>A/L revision notes</button><button onClick={()=>setInfoPage("Recorded lectures")}>Recorded lectures</button><button onClick={()=>setInfoPage("Degree resources")}>Degree notes</button></div>
+          <div className="footer-column"><b>Support</b><button onClick={()=>setInfoPage("Help centre")}>Help centre</button><button onClick={()=>setInfoPage("Student support")}>Student support</button><a href="mailto:methsinduyapa2000@gmail.com">Contact</a><button onClick={()=>setInfoPage("Accessibility")}>Accessibility</button></div>
+          <div className="footer-column"><b>Legal</b><button onClick={()=>setInfoPage("Terms of use")}>Terms</button><button onClick={()=>setInfoPage("Privacy policy")}>Privacy</button><button onClick={()=>setInfoPage("Cookie policy")}>Cookies</button><button onClick={()=>setInfoPage("Refund policy")}>Refunds</button><button onClick={()=>setInfoPage("Copyright policy")}>Copyright</button></div>
         </div>
-        <div className="footer-bottom"><span>© 2026 StudyNest by Methzz. All rights reserved.</span><span>Made in Sri Lanka · Secure authentication · Student-first learning</span></div>
+        <div className="footer-contact"><span>Created by <strong>Methsindu Yapa</strong></span><a href="mailto:methsinduyapa2000@gmail.com">methsinduyapa2000@gmail.com</a><a href="tel:+94762321886">+94 76 232 1886</a><a href="https://wa.me/94762321886" target="_blank" rel="noreferrer">WhatsApp</a></div>
+        <div className="footer-bottom"><span>© 2026 StudyNest by Methzz. All rights reserved.</span><span>Made for learners in Sri Lanka</span></div>
       </footer>
 
       {infoPage && (
