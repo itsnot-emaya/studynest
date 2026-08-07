@@ -123,6 +123,26 @@ const PACKS: Pack[] = [
   },
 ];
 
+
+const A_LEVEL_SUBJECTS: Record<string, string[]> = {
+  "Physical Science": ["Combined Mathematics","Physics","Chemistry","Information & Communication Technology"],
+  "Biological Science": ["Biology","Chemistry","Physics","Agricultural Science"],
+  "Commerce": ["Accounting","Business Studies","Economics","Business Statistics","Information & Communication Technology"],
+  "Technology": ["Engineering Technology","Bio Systems Technology","Science for Technology","Information & Communication Technology"],
+  "Arts & Humanities": ["Sinhala","Tamil","English","Geography","Political Science","Logic & Scientific Method","History of Sri Lanka","Indian History","European History","Modern World History","Buddhist Civilization","Hindu Civilization","Christian Civilization","Islamic Civilization","Greek & Roman Civilization","Pali","Sanskrit","Arabic","French","German","Hindi","Japanese","Chinese","Communication & Media Studies","Home Economics"],
+  "Aesthetic Studies": ["Art","Eastern Music","Western Music","Carnatic Music","Dancing (Indigenous)","Bharatha Dancing","Drama & Theatre (Sinhala)","Drama & Theatre (Tamil)","Drama & Theatre (English)"],
+  "Common Papers": ["General English","Common General Test"]
+};
+
+const O_LEVEL_SUBJECTS: Record<string, string[]> = {
+  "Core Subjects": ["Sinhala Language & Literature","Tamil Language & Literature","English Language","Mathematics","Science","History","Buddhism","Hinduism","Catholicism","Christianity","Islam"],
+  "Business, Society & Languages": ["Business & Accounting Studies","Geography","Civic Education","Entrepreneurship Studies","Second Language Sinhala","Second Language Tamil","Pali","Sanskrit","French","German","Hindi","Japanese","Arabic","Korean","Chinese","Russian"],
+  "Aesthetic Subjects": ["Art","Eastern Music","Western Music","Carnatic Music","Dancing (Indigenous)","Bharatha Dancing","Drama & Theatre (Sinhala)","Drama & Theatre (Tamil)","Drama & Theatre (English)","Sinhala Literary Appreciation","Tamil Literary Appreciation","English Literary Appreciation","Arabic Literary Appreciation"],
+  "Technology & Practical Subjects": ["Information & Communication Technology","Agriculture & Food Technology","Aquatic Bio Resources Technology","Arts & Crafts","Home Economics","Health & Physical Education","Communication & Media Studies","Design & Construction Technology","Design & Mechanical Technology","Design, Electrical & Electronic Technology","Electronic Writing & Shorthand"]
+};
+
+const PAPER_YEARS = Array.from({ length: 16 }, (_, index) => 2025 - index);
+
 const money = (n: number) => `LKR ${n.toLocaleString()}`;
 
 const BASE_PATH = "/studynest";
@@ -153,6 +173,7 @@ export default function Home() {
   const [cart, setCart] = useState<number[]>([]);
   const [cartOpen, setCartOpen] = useState(false);
   const [preview, setPreview] = useState<Pack | null>(null);
+  const [paperSubject, setPaperSubject] = useState<{ level: "O/L" | "A/L"; name: string } | null>(null);
   const [infoPage, setInfoPage] = useState<string | null>(null);
   const [notice, setNotice] = useState("");
   const [packs, setPacks] = useState(PACKS);
@@ -714,14 +735,30 @@ export default function Home() {
       )}
 
       {view === "subjects" && (
-        <section className="subjects-page">
-          <div className="page-hero"><span>BROWSE BY SUBJECT</span><h1>Choose a subject. Build your exam plan.</h1><p>Each collection is organised around the Sri Lankan syllabus and the way students actually revise.</p></div>
-          <div className="subject-directory">
-            {[ ["∑","Mathematics","Algebra, calculus, statistics and pure mathematics"], ["⚛","Physics","Mechanics, electricity, waves and structured essays"], ["⌬","Chemistry","Organic, inorganic and physical chemistry"], ["⌘","ICT","Databases, networking, programming and web technology"], ["Aa","English","Literature, language, essays and model answers"], ["%","Accounting","Financial accounting and graded practice"] ].map(([i,s,d]) => (
-              <button key={s} onClick={() => { setSubject(s); navigate("/marketplace", "store"); }}><span>{i}</span><div><b>{s}</b><p>{d}</p><small>View resources →</small></div></button>
-            ))}
+        <section className="exam-directory">
+          <div className="page-hero exam-hero"><span>SRI LANKAN EXAM RESOURCES</span><h1>Every O/L and A/L subject, organised clearly.</h1><p>Choose your examination level, find a subject and browse year-by-year past-paper and marking-scheme slots from 2010 to 2025.</p></div>
+          <div className="level-section ol-section">
+            <div className="level-heading"><div><span>G.C.E. ORDINARY LEVEL</span><h2>O/L Subjects</h2><p>Core subjects and optional subject groups available to Sri Lankan O/L learners.</p></div><b>{Object.values(O_LEVEL_SUBJECTS).flat().length}<small> subject options</small></b></div>
+            {Object.entries(O_LEVEL_SUBJECTS).map(([group,subjects])=><div className="subject-group" key={group}><h3>{group}</h3><div className="all-subject-grid">{subjects.map((name)=><button className="exam-subject-card" key={name} onClick={()=>setPaperSubject({level:"O/L",name})}><span>OL</span><div><b>{name}</b><small>Past papers · 2010–2025</small></div><i>→</i></button>)}</div></div>)}
           </div>
+          <div className="level-divider"><span>Choose your level</span></div>
+          <div className="level-section al-section">
+            <div className="level-heading"><div><span>G.C.E. ADVANCED LEVEL</span><h2>A/L Subjects by Stream</h2><p>Subject collections for Science, Commerce, Technology, Arts and common papers.</p></div><b>{Object.values(A_LEVEL_SUBJECTS).flat().length}<small> subject options</small></b></div>
+            {Object.entries(A_LEVEL_SUBJECTS).map(([stream,subjects])=><div className="subject-group" key={stream}><h3>{stream}</h3><div className="all-subject-grid">{subjects.map((name)=><button className="exam-subject-card al-card" key={name} onClick={()=>setPaperSubject({level:"A/L",name})}><span>AL</span><div><b>{name}</b><small>Past papers · 2010–2025</small></div><i>→</i></button>)}</div></div>)}
+          </div>
+          <div className="official-note"><span>i</span><div><b>Official paper source</b><p>Past-paper availability should be verified against the Sri Lankan Department of Examinations. StudyNest only displays genuine uploaded or officially linked papers.</p></div><a href="https://doenets.lk/" target="_blank" rel="noreferrer">Department of Examinations →</a></div>
         </section>
+      )}
+
+      {paperSubject && (
+        <div className="overlay paper-overlay" onMouseDown={()=>setPaperSubject(null)}>
+          <section className="paper-browser" onMouseDown={(e)=>e.stopPropagation()}>
+            <button className="close" onClick={()=>setPaperSubject(null)}>×</button>
+            <span className="badge">{paperSubject.level} PAST PAPER ARCHIVE</span><h2>{paperSubject.name}</h2><p>Choose a year to access the question paper, available language versions and marking scheme.</p>
+            <div className="paper-years">{PAPER_YEARS.map((year)=><article key={year}><div><b>{year}</b><small>{paperSubject.level} examination</small></div><div className="paper-actions"><button onClick={()=>setNotice(`${paperSubject.name} ${year} paper slot is ready for an admin upload`)}>Question paper</button><button onClick={()=>setNotice(`${paperSubject.name} ${year} marking scheme slot is ready for an admin upload`)}>Marking scheme</button></div></article>)}</div>
+            <div className="archive-note">Admin uploads will attach the real PDF to the matching subject, year, medium and paper type. Empty slots never produce fake downloads.</div>
+          </section>
+        </div>
       )}
 
       {view === "resource" && selectedResource && (
