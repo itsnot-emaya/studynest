@@ -66,3 +66,21 @@ footer.mega-footer>.footer-bottom{display:flex!important;flex-direction:row!impo
 footer.mega-footer .creator-card{display:grid!important;grid-template-columns:140px 180px minmax(240px,1fr) auto auto auto!important;width:100%;align-items:center!important}
 @media(max-width:1100px){footer.mega-footer>.footer-top{grid-template-columns:repeat(3,1fr)!important}footer.mega-footer .footer-brand{grid-column:1/-1!important}footer.mega-footer .creator-card{grid-template-columns:1fr 1fr 2fr!important}}
 @media(max-width:700px){footer.mega-footer>.footer-top{grid-template-columns:1fr 1fr!important;padding:48px 6% 32px!important}footer.mega-footer .creator-card{grid-template-columns:1fr!important}footer.mega-footer>.footer-bottom{flex-direction:column!important}}
+
+/* StudyNest aesthetic learning-resource theme */
+:root{--ink:#211a35;--muted:#746e82;--green:#7454d6;--lime:#ffd98a;--paper:#f7f4fc;--line:#e8e1f0}
+body{background:#fdfcff;color:var(--ink)}
+.nav{background:rgba(253,252,255,.88);border-color:#e9e2f0;box-shadow:0 8px 28px rgba(46,30,74,.05)}
+.brandmark{background:linear-gradient(145deg,#7454d6,#9b72ee);color:#fff!important;box-shadow:0 8px 18px rgba(116,84,214,.24)}
+.brand-name>span,.brand-copy small{color:#7454d6!important}.nav nav button.active{color:#7454d6;border-color:#7454d6}.signin-btn,.primary,.checkout{background:linear-gradient(135deg,#6848cb,#8c65e8)!important;box-shadow:0 10px 24px rgba(104,72,203,.22)!important}
+.hero{background:radial-gradient(circle at 78% 18%,#e7dcff 0,transparent 30%),radial-gradient(circle at 15% 85%,#fff0cf 0,transparent 25%),linear-gradient(135deg,#fbf9ff,#f4effd);min-height:650px}
+.hero h1 em,.eyebrow,.section-head>div>span{color:#7454d6}.orb.one{background:#e7dcff}.orb.two{background:#ffd98a}.p-front{border-color:#7454d6}.float-card>strong{background:#eee7ff;color:#7454d6}
+.subject-row button,.product,.programme-card,.academic-services article{border-color:#e8e1f0;box-shadow:0 12px 34px rgba(55,36,89,.055)}.subject-row button:hover,.programme-card:hover{border-color:#bba8eb;box-shadow:0 20px 45px rgba(76,48,130,.13)}.subject-row span{background:#eee8ff;color:#7454d6}
+.catalog{background:#f7f4fc}.product{border-radius:22px}.cover{height:270px}.product-body button{border-color:#7454d6;color:#7454d6}.rating{color:#e6a323}
+.education-hub{background:linear-gradient(180deg,#fdfcff,#f3edfc)}.pathway-tabs button{border-color:#dfd5ed;color:#665b76}.pathway-tabs button.active{background:#7454d6;border-color:#7454d6}.programme-card>span{background:linear-gradient(135deg,#eee7ff,#f7eefe);color:#7454d6}.programme-card button,.academic-services button{color:#7454d6}
+.student-journey{background:radial-gradient(circle at 85% 20%,rgba(152,111,235,.28),transparent 34%),linear-gradient(135deg,#211a35,#372454)}.journey-copy>span,.journey-steps>div>b{color:#ffd98a}.journey-steps>div{background:rgba(255,255,255,.075);border-color:rgba(255,255,255,.14)}
+.academic-services article>span{color:#7454d6}.benefits span{background:#eee8ff;color:#7454d6}.newsletter{background:linear-gradient(125deg,#6848cb,#9670e8);box-shadow:0 24px 55px rgba(88,56,150,.2)}.newsletter>div>span{color:#ffe3a8}.light{background:#fff1c8;color:#493376}
+.mega-footer,footer.mega-footer{background:#171326!important}.mega-footer .brand-name{color:#fff}.mega-footer .brand-name>span,.mega-footer .brand-copy small{color:#bca4ff!important}.mega-footer a:hover,.mega-footer button:hover{color:#cfbcff}.creator-card{background:#211a35!important;border-color:#46355f!important}.creator-card>span{color:#ffd98a!important}.footer-bottom{border-color:#3b304e!important}
+.info-modal{border:1px solid #e8e1f0}.info-modal a{color:#7454d6}.info-actions a{background:#eee8ff}.badge{color:#7454d6}
+.toast{background:#211a35}.search-btn,.cart-btn{border-color:#e8e1f0}.cart-btn b{background:#7454d6}
+@media(max-width:640px){.hero{background:linear-gradient(145deg,#fbf9ff,#f0e9fb)}}
