@@ -153,6 +153,7 @@ export default function Home() {
   const [cart, setCart] = useState<number[]>([]);
   const [cartOpen, setCartOpen] = useState(false);
   const [preview, setPreview] = useState<Pack | null>(null);
+  const [infoPage, setInfoPage] = useState<string | null>(null);
   const [notice, setNotice] = useState("");
   const [packs, setPacks] = useState(PACKS);
   const [adminTab, setAdminTab] = useState("Overview");
@@ -377,6 +378,9 @@ export default function Home() {
             onClick={() => navigate("/subjects", "subjects")}
           >
             Subjects
+          </button>
+          <button onClick={() => { navigate("/", "home"); setTimeout(() => document.getElementById("programmes")?.scrollIntoView({ behavior: "smooth" }), 50); }}>
+            Programmes
           </button>
           <button
             className={view === "library" ? "active" : ""}
@@ -604,6 +608,35 @@ export default function Home() {
             )}
           </section>
 
+          <section className="education-hub" id="programmes">
+            <div className="section-head">
+              <div><span>One learning platform</span><h2>From school to university and beyond</h2></div>
+              <p>Explore structured learning paths, academic programmes and skills that prepare you for exams, higher education and careers.</p>
+            </div>
+            <div className="pathway-tabs">
+              <button className="active">University programmes</button><button>School education</button><button>Certificates</button><button>Career skills</button>
+            </div>
+            <div className="programme-grid">
+              {[
+                ["AI", "Computing & Artificial Intelligence", "Diplomas, degrees and practical pathways in AI, software engineering, data science and cybersecurity.", "12 programmes"],
+                ["EN", "Engineering & Technology", "Build foundations in robotics, electronics, mechanical systems and modern engineering technology.", "9 programmes"],
+                ["BM", "Business & Management", "Study management, accounting, marketing, entrepreneurship, finance and business analytics.", "11 programmes"],
+                ["HS", "Health & Life Sciences", "Explore biology, psychology, health science, laboratory skills and research foundations.", "8 programmes"],
+                ["AL", "Advanced Level", "Complete A/L learning pathways for Mathematics, Science, Technology, Commerce and Arts streams.", "42 courses"],
+                ["OL", "Ordinary Level", "Syllabus-aligned O/L courses, revision plans, past papers and subject mastery resources.", "36 courses"],
+              ].map(([icon,title,description,count]) => (
+                <article className="programme-card" key={title}><span>{icon}</span><small>{count}</small><h3>{title}</h3><p>{description}</p><button onClick={() => navigate("/marketplace", "store")}>Explore courses →</button></article>
+              ))}
+            </div>
+          </section>
+          <section className="student-journey">
+            <div className="journey-copy"><span>YOUR STUDYNEST JOURNEY</span><h2>Learn with a clear path from enrolment to achievement.</h2><p>Choose a programme, follow organised modules, practise with assessments, track your progress and build evidence of your learning.</p><button className="primary" onClick={() => navigate("/marketplace", "store")}>Find your course →</button></div>
+            <div className="journey-steps">{[["01","Discover","Compare subjects, programmes and learning levels."],["02","Enrol","Create your account and access your personal learning space."],["03","Learn","Complete lessons, videos, readings, quizzes and assignments."],["04","Achieve","Track progress and earn completion recognition."]].map(([n,t,d])=><div key={n}><b>{n}</b><span><strong>{t}</strong><small>{d}</small></span></div>)}</div>
+          </section>
+          <section className="academic-services">
+            <div className="section-head"><div><span>Student services</span><h2>Support for every stage of learning</h2></div></div>
+            <div>{[["⌕","Course guidance","Find the right subject, level or academic pathway."],["▤","Admissions information","Understand entry requirements, enrolment and course schedules."],["♙","Academic support","Get help with study planning, resources and assessments."],["◇","Digital library","Access notes, past papers, reference materials and downloads."],["✓","Certificates","Receive completion recognition for eligible programmes."],["↗","Career pathways","Connect learning choices with future study and career goals."]].map(([i,t,d])=><article key={t}><span>{i}</span><h3>{t}</h3><p>{d}</p><button onClick={()=>setInfoPage(t)}>Learn more →</button></article>)}</div>
+          </section>
           <section className="benefits">
             <div>
               <span>✓</span>
@@ -1035,40 +1068,37 @@ export default function Home() {
         </div>
       )}
 
-      <footer>
-        <div className="footer-brand">
-          <div className="brand">
-            <span className="brandmark">S</span>
-            <span className="brand-copy">
-              <span className="brand-name">Study<span>Nest</span></span>
-              <small>by Methzz</small>
-            </span>
+      <footer className="mega-footer">
+        <div className="footer-top">
+          <div className="footer-brand">
+            <div className="brand"><span className="brandmark">S</span><span className="brand-copy"><span className="brand-name">Study<span>Nest</span></span><small>by Methzz</small></span></div>
+            <p>A modern learning platform for university and school education—courses, academic resources and student support in one place.</p>
+            <div className="social-links"><a href="https://www.instagram.com/methsinduuuu/" target="_blank" rel="noreferrer">Instagram</a><a href="http://www.linkedin.com/in/methsindu-yapa" target="_blank" rel="noreferrer">LinkedIn</a><span>GitHub coming soon</span></div>
           </div>
-          <p>Focused resources for ambitious students.</p>
+          <div><b>Study</b><button onClick={() => navigate("/marketplace","store")}>All courses</button><button onClick={() => navigate("/subjects","subjects")}>Subjects</button><button onClick={() => { navigate("/","home"); setTimeout(()=>document.getElementById("programmes")?.scrollIntoView({behavior:"smooth"}),50); }}>Programmes</button><button onClick={openLibrary}>My learning</button></div>
+          <div><b>University</b><button onClick={()=>setInfoPage("Admissions")}>Admissions</button><button onClick={()=>setInfoPage("Faculties")}>Faculties</button><button onClick={()=>setInfoPage("Entry requirements")}>Entry requirements</button><button onClick={()=>setInfoPage("Academic calendar")}>Academic calendar</button></div>
+          <div><b>Student support</b><button onClick={()=>setInfoPage("Help centre")}>Help centre</button><button onClick={()=>setInfoPage("Student services")}>Student services</button><a href="mailto:methsinduyapa2000@gmail.com">Contact us</a><button onClick={()=>setInfoPage("Accessibility")}>Accessibility</button></div>
+          <div><b>Policies</b><button onClick={()=>setInfoPage("Terms of use")}>Terms of use</button><button onClick={()=>setInfoPage("Privacy policy")}>Privacy policy</button><button onClick={()=>setInfoPage("Cookie policy")}>Cookie policy</button><button onClick={()=>setInfoPage("Refund policy")}>Refund policy</button><button onClick={()=>setInfoPage("Copyright policy")}>Copyright policy</button></div>
+          <div className="creator-card"><span>CREATED BY</span><h3>Methsindu Yapa</h3><p>Creator of StudyNest · AI & Robotics student building accessible digital education experiences.</p><a href="mailto:methsinduyapa2000@gmail.com">methsinduyapa2000@gmail.com</a><a href="tel:+94762321886">+94 76 232 1886</a><a href="https://wa.me/94762321886" target="_blank" rel="noreferrer">WhatsApp creator →</a></div>
         </div>
-        <div>
-          <b>Explore</b>
-          <a href="#catalog">Study packs</a>
-          <a href="#subjects">Subjects</a>
-            <a onClick={openLibrary}>My library</a>
-        </div>
-        <div>
-          <b>Support</b>
-          <a>Help centre</a>
-          <a>Contact us</a>
-          <a>Refund policy</a>
-        </div>
-        <div>
-          <b>Legal</b>
-          <a>Terms of use</a>
-          <a>Privacy</a>
-          <a>Copyright</a>
-        </div>
-        <div className="copyright">
-          © 2026 StudyNest. Made for students in Sri Lanka.{" "}
-          <span>Secure checkout • Instant delivery</span>
-        </div>
+        <div className="footer-bottom"><span>© 2026 StudyNest by Methzz. All rights reserved.</span><span>Made in Sri Lanka · Secure authentication · Student-first learning</span></div>
       </footer>
+
+      {infoPage && (
+        <div className="overlay info-overlay" onMouseDown={() => setInfoPage(null)}>
+          <section className="info-modal" onMouseDown={(e)=>e.stopPropagation()}>
+            <button className="close" onClick={()=>setInfoPage(null)}>×</button>
+            <span className="badge">STUDYNEST INFORMATION</span><h2>{infoPage}</h2>
+            {infoPage.includes("Privacy") ? <><p>StudyNest respects your privacy. Account information is used to provide authentication, learning access and student support. We do not sell personal information.</p><h3>Information we use</h3><p>Name, email, learning activity and transaction records may be processed only to operate and improve the platform. Authentication is securely provided through Supabase.</p><h3>Your choices</h3><p>You may request access, correction or deletion of eligible personal information by contacting the creator.</p></> :
+            infoPage.includes("Terms") ? <><p>By using StudyNest, you agree to use courses and learning materials lawfully and only for their intended educational purpose.</p><h3>Accounts and content</h3><p>Keep account details secure. Course files, lessons and downloads may not be resold, republished or shared without written permission.</p><h3>Platform availability</h3><p>Features may be improved or updated as the platform develops. Specific course details and eligibility should be confirmed before enrolment.</p></> :
+            infoPage.includes("Refund") ? <><p>Digital products and immediately accessible course materials are generally non-refundable after access or download. Duplicate payments and verified technical failures will be reviewed fairly.</p><p>Contact us with the order reference within seven days so we can investigate.</p></> :
+            infoPage.includes("Cookie") ? <><p>StudyNest uses essential browser storage and authentication cookies to keep accounts secure, remember sessions and provide core learning features.</p><p>Optional analytics may be added later with appropriate notice and controls.</p></> :
+            infoPage.includes("Copyright") ? <><p>StudyNest branding, original course structures and platform content are protected. Tutor and third-party materials remain the property of their respective owners.</p><p>Report suspected infringement to methsinduyapa2000@gmail.com.</p></> :
+            <><p>StudyNest is developing this service as part of its university and school learning ecosystem.</p><p>For programme guidance, admissions information, accessibility assistance or academic support, contact Methsindu Yapa at <a href="mailto:methsinduyapa2000@gmail.com">methsinduyapa2000@gmail.com</a> or call <a href="tel:+94762321886">+94 76 232 1886</a>.</p><div className="info-actions"><a href="mailto:methsinduyapa2000@gmail.com">Email support</a><a href="https://wa.me/94762321886" target="_blank" rel="noreferrer">WhatsApp</a></div></>}
+            <small className="policy-note">Last updated: August 2026 · StudyNest by Methzz</small>
+          </section>
+        </div>
+      )}
 
       {preview && (
         <div className="overlay" onMouseDown={() => setPreview(null)}>
